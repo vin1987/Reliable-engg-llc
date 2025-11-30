@@ -1,5 +1,5 @@
-<!DOCTYPE html>
 <html lang="en">
+    <!-- link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -205,7 +205,7 @@
         }
 
         nav.scrolled {
-            background: linear-gradient(135deg, rgba(30, 58, 138, 0.95), rgba(59, 130, 246, 0.95));
+            background: linear-gradient(135deg, rgba(153, 27, 27, 0.95), rgba(220, 38, 38, 0.95));
             backdrop-filter: blur(20px);
         }
 
@@ -239,11 +239,24 @@
         .logo {
             font-size: 1.8rem;
             font-weight: bold;
-            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            background: linear-gradient(135deg, #991b1b, #dc2626);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-image {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled .logo-image {
+            filter: brightness(0) invert(1);
         }
 
         /* Language Switcher */
@@ -254,34 +267,42 @@
             margin-left: 2rem;
         }
 
-        .lang-button {
-            padding: 0.5rem 1rem;
-            background: rgba(59, 130, 246, 0.1);
-            border: 2px solid #3b82f6;
-            border-radius: 20px;
-            color: #3b82f6;
-            font-weight: 600;
+        .lang-toggle {
+            display: flex;
+            background: rgba(220, 38, 38, 0.1);
+            border: 2px solid #dc2626;
+            border-radius: 25px;
+            overflow: hidden;
             cursor: pointer;
             transition: all 0.3s;
+        }
+
+        .lang-option {
+            padding: 0.5rem 1rem;
+            color: #dc2626;
+            font-weight: 600;
             font-size: 0.9rem;
+            transition: all 0.3s;
+            user-select: none;
         }
 
-        .lang-button:hover,
-        .lang-button.active {
-            background: linear-gradient(135deg, #3b82f6, #2563eb);
+        .lang-option.active {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
             color: white;
         }
 
-        nav.scrolled .lang-button {
+        nav.scrolled .lang-toggle {
             border-color: white;
-            color: white;
             background: rgba(255, 255, 255, 0.1);
         }
 
-        nav.scrolled .lang-button:hover,
-        nav.scrolled .lang-button.active {
+        nav.scrolled .lang-option {
+            color: white;
+        }
+
+        nav.scrolled .lang-option.active {
             background: white;
-            color: #1e3a8a;
+            color: #991b1b;
         }
 
         .hamburger {
@@ -347,9 +368,8 @@
 
         /* Hero Section */
         .hero {
-            margin-top: 80px;
             min-height: 90vh;
-            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+            background: linear-gradient(135deg, #0f172a 0%, #991b1b 100%);
             display: flex;
             align-items: center;
             padding: 2rem 5%;
@@ -385,14 +405,14 @@
 
         .hero .subtitle {
             font-size: 1.5rem;
-            color: #93c5fd;
+            color: #fecaca;
             margin-bottom: 2rem;
             animation: fadeInUp 1s ease-out 0.2s both;
         }
 
         .hero p {
             font-size: 1.1rem;
-            color: #e0e7ff;
+            color: #fee2e2;
             max-width: 700px;
             margin-bottom: 2.5rem;
             animation: fadeInUp 1s ease-out 0.4s both;
@@ -401,20 +421,30 @@
         .cta-button {
             display: inline-block;
             padding: 1rem 2.5rem;
-            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            background: linear-gradient(135deg, #7c3aed, #6d28d9);
             color: white;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
             font-size: 1.1rem;
             transition: all 0.3s;
-            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.3);
             animation: fadeInUp 1s ease-out 0.6s both;
+            margin-right: 1rem;
         }
 
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
+            box-shadow: 0 15px 40px rgba(124, 58, 237, 0.4);
+        }
+
+        .cta-button.secondary {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            box-shadow: 0 10px 30px rgba(251, 191, 36, 0.3);
+        }
+
+        .cta-button.secondary:hover {
+            box-shadow: 0 15px 40px rgba(251, 191, 36, 0.4);
         }
 
         /* About Section */
@@ -435,7 +465,7 @@
         .section-title {
             font-size: 3rem;
             margin-bottom: 1.5rem;
-            color: #1e3a8a;
+            color: #991b1b;
             position: relative;
             display: inline-block;
         }
@@ -447,7 +477,7 @@
             left: 0;
             width: 80px;
             height: 4px;
-            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
             border-radius: 2px;
         }
 
@@ -465,7 +495,7 @@
         }
 
         .stat-card {
-            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            background: linear-gradient(135deg, #fef2f2, #fee2e2);
             padding: 2rem;
             border-radius: 15px;
             text-align: center;
@@ -479,7 +509,7 @@
         .stat-number {
             font-size: 2.5rem;
             font-weight: bold;
-            color: #1e3a8a;
+            color: #991b1b;
             margin-bottom: 0.5rem;
         }
 
@@ -521,13 +551,25 @@
         }
 
         .service-icon {
-            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            background: linear-gradient(135deg, #991b1b, #dc2626);
             height: 200px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 4rem;
             color: white;
+            overflow: hidden;
+        }
+
+        .service-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover .service-icon img {
+            transform: scale(1.1);
         }
 
         .service-content {
@@ -537,7 +579,7 @@
         .service-content h3 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
-            color: #1e3a8a;
+            color: #991b1b;
         }
 
         .service-content p {
@@ -566,15 +608,15 @@
         .feature-card {
             padding: 2.5rem;
             border-radius: 15px;
-            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            background: linear-gradient(135deg, #fef2f2, #fee2e2);
             transition: all 0.3s;
             border: 2px solid transparent;
         }
 
         .feature-card:hover {
-            border-color: #3b82f6;
+            border-color: #dc2626;
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.2);
         }
 
         .feature-icon {
@@ -583,7 +625,7 @@
         }
 
         .feature-card h3 {
-            color: #1e3a8a;
+            color: #991b1b;
             margin-bottom: 1rem;
             font-size: 1.3rem;
         }
@@ -596,7 +638,7 @@
         /* Process Section */
         .process {
             padding: 6rem 5%;
-            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+            background: linear-gradient(135deg, #0f172a 0%, #991b1b 100%);
             color: white;
         }
 
@@ -745,6 +787,14 @@
             margin: 0 auto;
         }
 
+        .footer-logo {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+            margin-bottom: 1.5rem;
+            filter: brightness(0) invert(1);
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -849,8 +899,8 @@
         .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: #3b82f6;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+            border-color: #dc2626;
+            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
         }
 
         .form-group textarea {
@@ -867,7 +917,7 @@
         .submit-button {
             width: 100%;
             padding: 1.2rem;
-            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
             color: white;
             border: none;
             border-radius: 10px;
@@ -875,20 +925,20 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
-            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.3);
         }
 
         .submit-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
+            box-shadow: 0 15px 40px rgba(220, 38, 38, 0.4);
         }
 
         .form-note {
-            background: #f0f9ff;
+            background: #fef2f2;
             padding: 1.5rem;
             border-radius: 10px;
             margin-bottom: 2rem;
-            border-left: 4px solid #3b82f6;
+            border-left: 4px solid #dc2626;
         }
 
         .form-note p {
@@ -915,7 +965,7 @@
         }
 
         .testimonial-card {
-            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            background: linear-gradient(135deg, #fef2f2, #fee2e2);
             padding: 2.5rem;
             border-radius: 20px;
             position: relative;
@@ -930,7 +980,7 @@
 
         .quote-icon {
             font-size: 3rem;
-            color: #3b82f6;
+            color: #dc2626;
             opacity: 0.3;
             position: absolute;
             top: 1rem;
@@ -957,7 +1007,7 @@
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            background: linear-gradient(135deg, #991b1b, #dc2626);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -967,7 +1017,7 @@
         }
 
         .author-info h4 {
-            color: #1e3a8a;
+            color: #991b1b;
             margin-bottom: 0.3rem;
             font-size: 1.1rem;
         }
@@ -1018,7 +1068,7 @@
         .blog-image {
             width: 100%;
             height: 220px;
-            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            background: linear-gradient(135deg, #991b1b, #dc2626);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1082,6 +1132,73 @@
             margin-bottom: 1rem;
         }
 
+        /* Collapsible Section */
+        .collapsible-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 20px;
+            margin: 3rem 5%;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .collapsible-header {
+            background: linear-gradient(135deg, #0f172a 0%, #991b1b 100%);
+            padding: 2rem 3rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+        }
+
+        .collapsible-header:hover {
+            background: linear-gradient(135deg, #7f1d1d, #b91c1c);
+        }
+
+        .collapsible-header h2 {
+            color: white;
+            font-size: 2rem;
+            margin: 0;
+        }
+
+        .collapsible-header p {
+            color: #e0e7ff;
+            margin: 0.5rem 0 0 0;
+        }
+
+        .collapsible-toggle {
+            font-size: 3rem;
+            color: white;
+            transition: transform 0.3s;
+            line-height: 1;
+        }
+
+        .collapsible-toggle.active {
+            transform: rotate(180deg);
+        }
+
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+
+        .collapsible-content.active {
+            max-height: 5000px;
+            transition: max-height 1s ease-in;
+        }
+
+        .collapsible-inner {
+            padding: 0;
+        }
+
+        /* RFQ and Contact inside collapsible */
+        .collapsible-section .rfq-section,
+        .collapsible-section .contact {
+            padding: 4rem 3rem;
+            background: transparent;
+        }
+
         /* Photo Gallery Section */
         .gallery {
             padding: 6rem 5%;
@@ -1118,7 +1235,7 @@
         .gallery-item-image {
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            background: linear-gradient(135deg, #991b1b, #dc2626);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1191,7 +1308,7 @@
             width: 80vw;
             height: 70vh;
             max-width: 1000px;
-            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            background: linear-gradient(135deg, #991b1b, #dc2626);
             border-radius: 10px;
             display: flex;
             flex-direction: column;
@@ -1299,9 +1416,9 @@
 
         .filter-button:hover,
         .filter-button.active {
-            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
             color: white;
-            border-color: #3b82f6;
+            border-color: #dc2626;
             transform: translateY(-2px);
         }
 
@@ -1316,7 +1433,7 @@
         .contact-toggle {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -1324,13 +1441,13 @@
             color: white;
             font-size: 1.8rem;
             cursor: pointer;
-            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+            box-shadow: 0 4px 20px rgba(220, 38, 38, 0.4);
             transition: all 0.3s;
         }
 
         .contact-toggle:hover {
             transform: scale(1.1);
-            box-shadow: 0 6px 30px rgba(59, 130, 246, 0.6);
+            box-shadow: 0 6px 30px rgba(220, 38, 38, 0.6);
         }
 
         .quick-contact-form {
@@ -1352,7 +1469,7 @@
         }
 
         .quick-contact-form h3 {
-            color: #1e3a8a;
+            color: #991b1b;
             margin-bottom: 1rem;
             font-size: 1.3rem;
         }
@@ -1395,7 +1512,7 @@
         .quick-contact-form button {
             width: 100%;
             padding: 0.9rem;
-            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            background: linear-gradient(135deg, #e70536, #da0723);
             color: white;
             border: none;
             border-radius: 8px;
@@ -1425,7 +1542,7 @@
         }
 
         .close-form:hover {
-            color: #1e3a8a;
+            color: #8a1e30;
             transform: none;
             box-shadow: none;
         }
@@ -1458,6 +1575,170 @@
             transform: translateY(-3px);
         }
 
+    .carousel-container {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #2c3e50;
+    }
+
+    .carousel {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      background: white;
+      padding: 20px;
+    }
+
+    .carousel-inner {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-item {
+      min-width: 100%;
+      padding: 10px;
+    }
+
+    .carousel-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+    }
+
+    .carousel-controls {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      gap: 12px;
+    }
+
+    .carousel-btn {
+      background: #e00808;
+      color: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+
+    .carousel-btn:hover {
+      background: #2980b9;
+    }
+
+    .carousel-indicators {
+      display: flex;
+      justify-content: center;
+      margin-top: 15px;
+      gap: 8px;
+    }
+
+    .indicator {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #ddd;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .indicator.active {
+      background: #e00808;
+    }
+
+    .contact-section {
+      margin-top: 40px;
+      padding: 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .contact-section h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: #2c3e50;
+    }
+
+    .contact-section p {
+      font-size: 16px;
+      color: #555;
+    }
+    .dropdown1 {
+    float: left;
+    }
+
+.dropdown1 .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: rgb(8, 0, 0);
+  background-color: transparent;
+  font-family: inherit;
+  margin: 0;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+  position: relative;
+}
+
+.dropbtn.scrolled{
+    color: #faf8f8;
+}
+
+.navbar1 a:hover, .dropdown2:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown1-content {
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  background-color: rgb(235, 233, 233);
+  box-shadow: 0px 8px 16px 0px rgba(245, 242, 242, 0.2);
+  z-index: 1;
+}
+
+.dropdown1-content a {
+  float: none;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+  position: relative;
+}
+
+.dropdown1-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown1:hover .dropdown1-content {
+  display: block;
+}
+
+.dropdown1-content.scrolled{
+  background-color:  rgba(220, 38, 38, 0.95);
+
+}
+
         @media (max-width: 968px) {
             .hamburger {
                 display: flex;
@@ -1465,6 +1746,10 @@
 
             .language-switcher {
                 margin-left: 1rem;
+            }
+
+            .logo-image {
+                height: 40px;
             }
 
             .nav-links {
@@ -1493,6 +1778,34 @@
 
             .nav-links li:last-child {
                 border-bottom: none;
+            }
+
+            .dropdown {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                margin-top: 0;
+                background: #f8fafc;
+                border-radius: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+
+            .nav-item.open .dropdown {
+                max-height: 300px;
+            }
+
+            .dropdown a {
+                padding-left: 2rem;
+                font-size: 0.95rem;
+            }
+
+            .dropdown a:hover {
+                padding-left: 2.5rem;
+                background: rgba(59, 130, 246, 0.1);
             }
 
             .nav-links a {
@@ -1547,6 +1860,26 @@
                 flex-wrap: wrap;
             }
 
+            .collapsible-header {
+                padding: 1.5rem 1.5rem;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .collapsible-header h2 {
+                font-size: 1.5rem;
+            }
+
+            .collapsible-toggle {
+                font-size: 2rem;
+                margin-top: 1rem;
+            }
+
+            .collapsible-section .rfq-section,
+            .collapsible-section .contact {
+                padding: 2rem 1.5rem;
+            }
+
             .lightbox-close,
             .lightbox-nav {
                 font-size: 2rem;
@@ -1570,6 +1903,22 @@
             .gallery-grid {
                 grid-template-columns: 1fr;
             }
+
+            .carousel-slide {
+                padding: 2rem 1.5rem;
+            }
+
+            .carousel-slide h3 {
+                font-size: 1.4rem;
+            }
+
+            .carousel-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+
         }
     </style>
 </head>
@@ -1577,7 +1926,9 @@
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
-            <div class="logo">RELIABLE ENGINEERING</div>
+            <div class="logo">
+                <img src="https://reliable-engg.com/wp-content/uploads/2025/01/cropped-reliable-Copy-2048x645.png" alt="Reliable Engineering LLC Logo" class="logo-image">
+            </div>
             <div style="display: flex; align-items: center;">
                 <div class="hamburger" id="hamburger">
                     <span></span>
@@ -1588,16 +1939,37 @@
                     <li><a href="#home" data-en="Home" data-es="Inicio">Home</a></li>
                     <li><a href="#about" data-en="About" data-es="Acerca">About</a></li>
                     <li><a href="#services" data-en="Services" data-es="Servicios">Services</a></li>
-                    <li><a href="#rfq" data-en="RFQ" data-es="RFQ">RFQ</a></li>
-                    <li><a href="#testimonials" data-en="Testimonials" data-es="Testimonios">Testimonials</a></li>
-                    <li><a href="#blog" data-en="Blog" data-es="Blog">Blog</a></li>
-                    <li><a href="#gallery" data-en="Gallery" data-es="Galería">Gallery</a></li>
-                    <li><a href="#contact" data-en="Contact" data-es="Contacto">Contact</a></li>
+                    <li><a href="#rfq-contact" data-en="RFQ" data-es="RFQ">RFQ</a></li>
+                    <!-- li class="nav-item">
+                        <a href="#" class="dropdown-toggle" data-en="Resources" data-es="Recursos">
+                            Resources<span class="dropdown-arrow">▼</span>
+                        </a>
+                        <div class="dropdown">
+                            <a href="#testimonials" data-en="Testimonials" data-es="Testimonios">Testimonials</a>
+                            <a href="#blog" data-en="Blog" data-es="Blog">Blog</a>
+                            <a href="#gallery" data-en="Gallery" data-es="Galería">Gallery</a>
+                        </div>
+                    </li -->
+                    <li class="dropdown1" >
+                    <div >
+                        <button class="dropbtn" id="dropbtn" data-en="Resources" data-es="Recursos"> Resources</button>
+                        <div class="dropdown1-content" id="dropdownContent">
+                            <a href="#testimonials" data-en="Testimonials" data-es="Testimonios">Testimonials</a>
+                            <a href="#blog" data-en="Blog" data-es="Blog">Blog</a>
+                            <a href="#gallery" data-en="Gallery" data-es="Galería">Gallery</a>
+                            <a href="#parts-gallery" data-en="Parts Gallery" data-es="Galería">Parts Gallery</a>
+                            
+                        </div>
+                      </div> 
+                    </li>
+
                 </ul>
-                <div class="language-switcher">
-                    <button class="lang-button active" data-lang="en">EN</button>
-                    <button class="lang-button" data-lang="es">ES</button>
-                </div>
+                <!-- div class="language-switcher">
+                    <div class="lang-toggle" id="langToggle">
+                        <div class="lang-option active" data-lang="en">EN</div>
+                        <div class="lang-option" data-lang="es">ES</div>
+                    </div>
+                </div -->
             </div>
         </div>
     </nav>
@@ -1608,7 +1980,10 @@
             <h1 data-en="Welcome To<br>RELIABLE ENGINEERING LLC" data-es="Bienvenido a<br>RELIABLE ENGINEERING LLC">Welcome To<br>RELIABLE ENGINEERING LLC</h1>
             <p class="subtitle" data-en="YOUR TRUSTED ART-TO-PART COMPANY" data-es="SU EMPRESA DE CONFIANZA DE ARTE A PIEZA">YOUR TRUSTED ART-TO-PART COMPANY</p>
             <p data-en="Setting benchmarks in sheet metal fabrication, automotive component production, prototype development, machining, casting, and more. We deliver innovative engineering solutions to world-class OEMs like NAVISTAR, CATERPILLAR, and KOMATSU." data-es="Estableciendo estándares en fabricación de chapa metálica, producción de componentes automotrices, desarrollo de prototipos, mecanizado, fundición y más. Entregamos soluciones de ingeniería innovadoras a OEMs de clase mundial como NAVISTAR, CATERPILLAR y KOMATSU.">Setting benchmarks in sheet metal fabrication, automotive component production, prototype development, machining, casting, and more. We deliver innovative engineering solutions to world-class OEMs like NAVISTAR, CATERPILLAR, and KOMATSU.</p>
-            <a href="#contact" class="cta-button" aria-label="Get started with Reliable Engineering" data-en="Get Started Today" data-es="Comience Hoy">Get Started Today</a>
+            <div>
+                <a href="#rfq-contact" class="cta-button" aria-label="Get started with Reliable Engineering" data-en="Get Started Today" data-es="Comience Hoy">Get Started Today</a>
+                <!--a href="https://reliable-engg.com/nds/" target="_blank" rel="noopener noreferrer" class="cta-button secondary" aria-label="Visit NDS Page" data-en="Visit NDS" data-es="Visitar NDS">Visit NDS</a> -->
+            </div>
         </div>
     </section>
 
@@ -1620,6 +1995,9 @@
                 <p data-en="At Reliable Engineering Services, we are a passionate team with over 50 years of combined industry expertise. Our mission is to deliver innovative, dependable solutions to our esteemed clients." data-es="En Reliable Engineering Services, somos un equipo apasionado con más de 50 años de experiencia combinada en la industria. Nuestra misión es entregar soluciones innovadoras y confiables a nuestros estimados clientes.">At Reliable Engineering Services, we are a passionate team with over 50 years of combined industry expertise. Our mission is to deliver innovative, dependable solutions to our esteemed clients.</p>
                 <p data-en="As an <strong>ISO 9001:2015-certified</strong>, <strong>100% minority-owned company</strong>, we specialize in transforming ideas into reality—from concept to production. With facilities spanning <strong>70,000 sq. ft. in Chenoa, USA</strong>, and <strong>50,000 sq. ft. in Nashik, India</strong>, we ensure flexibility as both on-shore and off-shore partners." data-es="Como una <strong>empresa certificada ISO 9001:2015</strong> y de <strong>propiedad 100% minoritaria</strong>, nos especializamos en transformar ideas en realidad, desde el concepto hasta la producción. Con instalaciones de <strong>70,000 pies cuadrados en Chenoa, EE.UU.</strong> y <strong>50,000 pies cuadrados en Nashik, India</strong>, garantizamos flexibilidad como socios en tierra y en el extranjero.">As an <strong>ISO 9001:2015-certified</strong>, <strong>100% minority-owned company</strong>, we specialize in transforming ideas into reality—from concept to production. With facilities spanning <strong>70,000 sq. ft. in Chenoa, USA</strong>, and <strong>50,000 sq. ft. in Nashik, India</strong>, we ensure flexibility as both on-shore and off-shore partners.</p>
                 <p data-en="Our state-of-the-art, paperless ERP-enabled factories are EDI-capable, enabling seamless operations. Trust us for quality, precision, and reliability in manufacturing." data-es="Nuestras fábricas de última generación sin papel habilitadas con ERP son capaces de EDI, lo que permite operaciones sin problemas. Confíe en nosotros para calidad, precisión y confiabilidad en la fabricación.">Our state-of-the-art, paperless ERP-enabled factories are EDI-capable, enabling seamless operations. Trust us for quality, precision, and reliability in manufacturing.</p>
+                <p>Founded in 1976 in Chenoa, Illinois, our company began its journey with a clear mission: to deliver quality engineering solutions. Our first major milestone came when we partnered with CATERPILLAR, laying the groundwork for our legacy in the manufacturing industry.</p>
+                <p>In 2014, <strong> Kishor Salunkhe</strong>  took ownership of the company, bringing a bold vision for growth and innovation. Under his leadership, we expanded our customer base to include global giants like KOMATSU and NAVISTAR. To further strengthen our global presence, we established a second, cutting-edge facility in Nashik, India, in 2021.</p>
+                <p>Today, with a strong foothold in the United States and India, we proudly supply high-quality components to leading automotive and earth-moving vehicle OEMs worldwide. Our journey reflects our unwavering commitment to innovation, precision, and excellence in engineering solutions.</p>
             </div>
             <div class="stats">
                 <div class="stat-card">
@@ -1645,15 +2023,24 @@
     <!-- Services Section -->
     <section id="services" class="services">
         <div class="services-container">
-            <h2 class="section-title">Our Core Manufacturing Services</h2>
+            <h2 class="section-title" data-en="Our Core Manufacturing Services" data-es="Nuestros Servicios Principales de Fabricación">Our Core Manufacturing Services</h2>
             <div class="services-grid">
+                <article class="service-card">
+                    <div class="service-icon" aria-hidden="true">
+                        <img src="https://reliable-engg.com/wp-content/uploads/2025/01/RELIABLE-LASERUCTTING-1.jpg" alt="Sheet Metal Fabrication">
+                    </div>
+                    <div class="service-content">
+                        <h3 data-en="Sheet Metal Fabrication" data-es="Fabricación de Chapa Metálica">Sheet Metal Fabrication</h3>
+                        <p data-en="High-quality <strong>sheet metal fabrication</strong> for diverse industrial applications with precision and reliability. Custom metal fabrication services for automotive, aerospace, and industrial sectors." data-es="<strong>Fabricación de chapa metálica</strong> de alta calidad para diversas aplicaciones industriales con precisión y confiabilidad. Servicios de fabricación de metal personalizados para sectores automotriz, aeroespacial e industrial.">High-quality <strong>sheet metal fabrication</strong> for diverse industrial applications with precision and reliability. Custom metal fabrication services for automotive, aerospace, and industrial sectors.</p>
+                    </div>
+                </article>
                 <article class="service-card">
                     <div class="service-icon" aria-hidden="true">
                         <img src="https://reliable-engg.com/wp-content/uploads/2025/01/3-1024x607.png" alt="Sheet Metal Stamping">
                     </div>
                     <div class="service-content">
-                        <h3>Sheet Metal Fabrication</h3>
-                        <p>High-quality <strong>sheet metal fabrication</strong> for diverse industrial applications with precision and reliability. Custom metal fabrication services for automotive, aerospace, and industrial sectors.</p>
+                        <h3 data-en="Sheet Metal Stamping" data-es="Estampado de Chapa Metálica">Sheet Metal Stamping</h3>
+                        <p data-en="Precision <strong>metal stamping</strong> for automotive and industrial components meeting exacting standards. High-volume production with tight tolerances." data-es="<strong>Estampado de metal</strong> de precisión para componentes automotrices e industriales que cumplen con estándares exigentes. Producción de alto volumen con tolerancias ajustadas.">Precision <strong>metal stamping</strong> for automotive and industrial components meeting exacting standards. High-volume production with tight tolerances.</p>
                     </div>
                 </article>
                 <article class="service-card">
@@ -1661,124 +2048,77 @@
                         <img src="https://reliable-engg.com/wp-content/uploads/2025/01/Screenshot-2025-01-19-002107.png" alt="Metal Casting">
                     </div>
                     <div class="service-content">
-                        <h3>Sheet Metal Stamping</h3>
-                        <p>Precision <strong>metal stamping</strong> for automotive and industrial components meeting exacting standards. High-volume production with tight tolerances.</p>
+                        <h3 data-en="Metal Casting Services" data-es="Servicios de Fundición de Metales">Metal Casting Services</h3>
+                        <p data-en="Reliable <strong>metal casting solutions</strong> for durable and complex parts across multiple industries. Investment casting and sand casting capabilities." data-es="<strong>Soluciones de fundición de metales</strong> confiables para piezas duraderas y complejas en múltiples industrias. Capacidades de fundición a la cera perdida y fundición en arena.">Reliable <strong>metal casting solutions</strong> for durable and complex parts across multiple industries. Investment casting and sand casting capabilities.</p>
                     </div>
                 </article>
                 <article class="service-card">
                     <div class="service-icon" aria-hidden="true">
-                <img src="https://reliable-engg.com/wp-content/uploads/2025/01/2-1024x615.png" alt="CNC Machining">
-            </div>
+                        <img src="https://reliable-engg.com/wp-content/uploads/2025/01/2-1024x615.png" alt="CNC Machining">
+                    </div>
                     <div class="service-content">
-                        <h3>Metal Casting Services</h3>
-                        <p>Reliable <strong>metal casting solutions</strong> for durable and complex parts across multiple industries. Investment casting and sand casting capabilities.</p>
+                        <h3 data-en="Precision CNC Machining" data-es="Mecanizado CNC de Precisión">Precision CNC Machining</h3>
+                        <p data-en="Tight-tolerance <strong>CNC machining services</strong> for critical components with advanced technology. 3-axis, 4-axis, and 5-axis machining capabilities." data-es="<strong>Servicios de mecanizado CNC</strong> de tolerancia ajustada para componentes críticos con tecnología avanzada. Capacidades de mecanizado de 3, 4 y 5 ejes.">Tight-tolerance <strong>CNC machining services</strong> for critical components with advanced technology. 3-axis, 4-axis, and 5-axis machining capabilities.</p>
                     </div>
                 </article>
                 <article class="service-card">
                     <div class="service-icon" aria-hidden="true">
-                <img src="https://reliable-engg.com/wp-content/uploads/2025/01/faro-1.jpg" alt="Reverse Engineering">
-            </div>
+                        <img src="https://reliable-engg.com/wp-content/uploads/2025/01/faro-1.jpg" alt="Reverse Engineering">
+                    </div>
                     <div class="service-content">
-                        <h3>Precision CNC Machining</h3>
-                        <p>Tight-tolerance <strong>CNC machining services</strong> for critical components with advanced technology. 3-axis, 4-axis, and 5-axis machining capabilities.</p>
+                        <h3 data-en="Reverse Engineering" data-es="Ingeniería Inversa">Reverse Engineering</h3>
+                        <p data-en="Recreating and enhancing existing designs with accuracy and innovation. <strong>3D scanning and CAD modeling</strong> services for legacy parts." data-es="Recreación y mejora de diseños existentes con precisión e innovación. Servicios de <strong>escaneo 3D y modelado CAD</strong> para piezas heredadas.">Recreating and enhancing existing designs with accuracy and innovation. <strong>3D scanning and CAD modeling</strong> services for legacy parts.</p>
                     </div>
                 </article>
                 <article class="service-card">
-                    <div class="service-icon" aria-hidden="true">🔄</div>
-                    <div class="service-content">
-                        <h3>Reverse Engineering</h3>
-                        <p>Recreating and enhancing existing designs with accuracy and innovation. <strong>3D scanning and CAD modeling</strong> services for legacy parts.</p>
+                    <div class="service-icon" aria-hidden="true">
+                        <img src="https://reliable-engg.com/wp-content/uploads/2025/01/busbar.jpg" alt="Bus Bar Development">
                     </div>
-                </article>
-                <article class="service-card">
-                   <div class="service-icon" aria-hidden="true">
-                <img src="https://reliable-engg.com/wp-content/uploads/2025/01/busbar.jpg" alt="Bus Bar Development">
-            </div>
                     <div class="service-content">
-                        <h3>Bus Bar Development</h3>
-                        <p>Custom <strong>busbar manufacturing</strong> for efficient electrical distribution systems and power management. Copper and aluminum busbar fabrication.</p>
+                        <h3 data-en="Bus Bar Development" data-es="Desarrollo de Barras Colectoras">Bus Bar Development</h3>
+                        <p data-en="Custom <strong>busbar manufacturing</strong> for efficient electrical distribution systems and power management. Copper and aluminum busbar fabrication." data-es="<strong>Fabricación de barras colectoras</strong> personalizadas para sistemas de distribución eléctrica eficientes y gestión de energía. Fabricación de barras colectoras de cobre y aluminio.">Custom <strong>busbar manufacturing</strong> for efficient electrical distribution systems and power management. Copper and aluminum busbar fabrication.</p>
                     </div>
                 </article>
             </div>
         </div>
     </section>
 
-    <!-- RFQ Section -->
-    <section id="rfq" class="rfq-section">
-        <div class="rfq-container">
-            <h2 class="section-title">Request for Quotation</h2>
-            <div class="form-note">
-                <p><strong>Get a detailed quote for your project.</strong> Fill out the form below and our team will respond within 24 hours with a comprehensive quotation tailored to your requirements.</p>
+
+        <!-- Process Section -->
+    <section id="process" class="process">
+            <div class="process-container">
+                <h2 class="section-title">Our Structured Way of Working</h2>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h3>Request for Quotation</h3>
+                        <p>Receive and analyze RFQ, review feasibility, and provide detailed quotations.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h3>Design & Engineering</h3>
+                        <p>Create CAD models, optimize nesting, and develop detailed manufacturing programs.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h3>Manufacturing</h3>
+                        <p>Execute laser cutting, bending, stamping, and assembly with precision.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h3>Quality Assurance</h3>
+                        <p>Advanced FARO inspection and comprehensive quality validation processes.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">5</div>
+                        <h3>Packaging & Dispatch</h3>
+                        <p>Safe packaging and on-time delivery to specified locations worldwide.</p>
+                    </div>
+                </div>
             </div>
-            <form class="rfq-form" id="rfqForm">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="firstName">First Name *</label>
-                        <input type="text" id="firstName" name="firstName" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="lastName">Last Name *</label>
-                        <input type="text" id="lastName" name="lastName" required>
-                    </div>
-                </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="email">Email Address *</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone Number *</label>
-                        <input type="tel" id="phone" name="phone" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="company">Company Name *</label>
-                    <input type="text" id="company" name="company" required>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="service">Service Required *</label>
-                        <select id="service" name="service" required>
-                            <option value="">Select a service</option>
-                            <option value="sheet-metal-fabrication">Sheet Metal Fabrication</option>
-                            <option value="sheet-metal-stamping">Sheet Metal Stamping</option>
-                            <option value="metal-casting">Metal Casting</option>
-                            <option value="cnc-machining">Precision CNC Machining</option>
-                            <option value="reverse-engineering">Reverse Engineering</option>
-                            <option value="bus-bar">Bus Bar Development</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="quantity">Estimated Quantity</label>
-                        <input type="text" id="quantity" name="quantity" placeholder="e.g., 1000 units">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="timeline">Project Timeline</label>
-                    <input type="text" id="timeline" name="timeline" placeholder="e.g., 2-3 months">
-                </div>
-
-                <div class="form-group">
-                    <label for="details">Project Details *</label>
-                    <textarea id="details" name="details" required placeholder="Please provide detailed information about your project requirements, specifications, materials, tolerances, etc."></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label for="attachments">Attach Files (CAD drawings, specifications, etc.)</label>
-                    <input type="file" id="attachments" name="attachments" multiple accept=".pdf,.dwg,.dxf,.step,.stp,.igs,.iges,.png,.jpg,.jpeg">
-                </div>
-
-                <button type="submit" class="submit-button">Submit RFQ</button>
-            </form>
-        </div>
     </section>
 
-    <!-- Why Choose Us -->
+        <!-- Why Choose Us -->
     <section class="why-choose">
         <div class="why-choose-container">
             <h2 class="section-title">Why Choose Reliable Engineering</h2>
@@ -1807,6 +2147,97 @@
         </div>
     </section>
 
+    <!-- RFQ Section -->
+    <section id="rfq-contact" class="collapsible-section">
+        <div class="collapsible-header" id="rfqContactHeader">
+            <div>
+                <h2 data-en="Get Started with Your Project" data-es="Comience con Su Proyecto">Get Started with Your Project</h2>
+                <p data-en="Request a quote or get in touch with our team" data-es="Solicite una cotización o póngase en contacto con nuestro equipo">Request a quote or get in touch with our team</p>
+            </div>
+            <span class="collapsible-toggle" id="rfqContactToggle">▼</span>
+        </div>
+        <div class="collapsible-content" id="rfqContactContent">
+            <div class="collapsible-inner">
+                <!-- RFQ Form -->
+                <section class="rfq-section">
+                    <div class="rfq-container">
+                        <h2 class="section-title" data-en="Request for Quotation" data-es="Solicitud de Cotización">Request for Quotation</h2>
+                        <div class="form-note">
+                            <p data-en="<strong>Get a detailed quote for your project.</strong> Fill out the form below and our team will respond within 24 hours with a comprehensive quotation tailored to your requirements." data-es="<strong>Obtenga una cotización detallada para su proyecto.</strong> Complete el formulario a continuación y nuestro equipo responderá dentro de las 24 horas con una cotización completa adaptada a sus requisitos."><strong>Get a detailed quote for your project.</strong> Fill out the form below and our team will respond within 24 hours with a comprehensive quotation tailored to your requirements.</p>
+                        </div>
+                        <form class="rfq-form" id="rfqForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName" data-en="First Name *" data-es="Nombre *">First Name *</label>
+                                    <input type="text" id="firstName" name="firstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName" data-en="Last Name *" data-es="Apellido *">Last Name *</label>
+                                    <input type="text" id="lastName" name="lastName" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email" data-en="Email Address *" data-es="Correo Electrónico *">Email Address *</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone" data-en="Phone Number *" data-es="Número de Teléfono *">Phone Number *</label>
+                                    <input type="tel" id="phone" name="phone" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="company" data-en="Company Name *" data-es="Nombre de la Empresa *">Company Name *</label>
+                                <input type="text" id="company" name="company" required>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="service" data-en="Service Required *" data-es="Servicio Requerido *">Service Required *</label>
+                                    <select id="service" name="service" required>
+                                        <option value="" data-en="Select a service" data-es="Seleccione un servicio">Select a service</option>
+                                        <option value="sheet-metal-fabrication" data-en="Sheet Metal Fabrication" data-es="Fabricación de Chapa">Sheet Metal Fabrication</option>
+                                        <option value="sheet-metal-stamping" data-en="Sheet Metal Stamping" data-es="Estampado de Chapa">Sheet Metal Stamping</option>
+                                        <option value="metal-casting" data-en="Metal Casting" data-es="Fundición de Metal">Metal Casting</option>
+                                        <option value="cnc-machining" data-en="Precision CNC Machining" data-es="Mecanizado CNC">Precision CNC Machining</option>
+                                        <option value="reverse-engineering" data-en="Reverse Engineering" data-es="Ingeniería Inversa">Reverse Engineering</option>
+                                        <option value="bus-bar" data-en="Bus Bar Development" data-es="Desarrollo de Barras">Bus Bar Development</option>
+                                        <option value="other" data-en="Other" data-es="Otro">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="quantity" data-en="Estimated Quantity" data-es="Cantidad Estimada">Estimated Quantity</label>
+                                    <input type="text" id="quantity" name="quantity" placeholder="e.g., 1000 units">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="timeline" data-en="Project Timeline" data-es="Cronograma del Proyecto">Project Timeline</label>
+                                <input type="text" id="timeline" name="timeline" placeholder="e.g., 2-3 months">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="details" data-en="Project Details *" data-es="Detalles del Proyecto *">Project Details *</label>
+                                <textarea id="details" name="details" required placeholder="Please provide detailed information about your project requirements, specifications, materials, tolerances, etc."></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="attachments" data-en="Attach Files (CAD drawings, specifications, etc.)" data-es="Adjuntar Archivos (Planos CAD, especificaciones, etc.)">Attach Files (CAD drawings, specifications, etc.)</label>
+                                <input type="file" id="attachments" name="attachments" multiple accept=".pdf,.dwg,.dxf,.step,.stp,.igs,.iges,.png,.jpg,.jpeg">
+                            </div>
+
+                            <button type="submit" class="submit-button" data-en="Submit RFQ" data-es="Enviar RFQ">Submit RFQ</button>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+
+
+
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials">
         <div class="testimonials-container">
@@ -1818,9 +2249,9 @@
                     <div class="rating">★★★★★</div>
                     <p class="testimonial-text">"Reliable Engineering has been our go-to partner for sheet metal fabrication for over 5 years. Their attention to detail, quality consistency, and on-time delivery are exceptional. The team's technical expertise helped us reduce production costs by 15% while improving quality."</p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">JM</div>
+                        <div class="author-avatar">R</div>
                         <div class="author-info">
-                            <h4>James Morrison</h4>
+
                             <p>Supply Chain Manager, Navistar</p>
                         </div>
                     </div>
@@ -1831,9 +2262,9 @@
                     <div class="rating">★★★★★</div>
                     <p class="testimonial-text">"We've worked with many fabrication shops, but Reliable Engineering stands out for their rapid prototyping capabilities. They took our concept from design to production-ready parts in just 3 weeks. Their FARO inspection process gives us complete confidence in dimensional accuracy."</p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">SK</div>
+                        <div class="author-avatar">R</div>
                         <div class="author-info">
-                            <h4>Sarah Kim</h4>
+                          
                             <p>Engineering Director, Caterpillar</p>
                         </div>
                     </div>
@@ -1841,52 +2272,12 @@
 
                 <article class="testimonial-card">
                     <div class="quote-icon">"</div>
-                    <div class="rating">★★★★★</div>
+                    <div class="rating">★★★★</div>
                     <p class="testimonial-text">"The precision CNC machining work from Reliable Engineering is outstanding. Complex geometries, tight tolerances, and difficult materials - they handle it all with expertise. Their ISO 9001:2015 certification and quality documentation make audits seamless."</p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">RD</div>
+                        <div class="author-avatar">R</div>
                         <div class="author-info">
-                            <h4>Robert Davis</h4>
                             <p>Quality Manager, Komatsu</p>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="testimonial-card">
-                    <div class="quote-icon">"</div>
-                    <div class="rating">★★★★★</div>
-                    <p class="testimonial-text">"Excellent service for our busbar development project. The engineering team understood our electrical requirements perfectly and delivered custom solutions that exceeded our expectations. Their dual facility model in USA and India provides great flexibility."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">ML</div>
-                        <div class="author-info">
-                            <h4>Michael Lee</h4>
-                            <p>Project Lead, Power Systems Inc.</p>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="testimonial-card">
-                    <div class="quote-icon">"</div>
-                    <div class="rating">★★★★★</div>
-                    <p class="testimonial-text">"We needed a reliable partner for high-volume stamping and Reliable Engineering delivered. Their process controls, material traceability, and consistent quality have helped us maintain our production schedules without any hiccups. Highly recommended!"</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">AP</div>
-                        <div class="author-info">
-                            <h4>Amanda Peterson</h4>
-                            <p>Operations Manager, Automotive Components Ltd.</p>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="testimonial-card">
-                    <div class="quote-icon">"</div>
-                    <div class="rating">★★★★★</div>
-                    <p class="testimonial-text">"The reverse engineering service saved our legacy product line. They accurately recreated discontinued components and even suggested improvements to the original design. Their modern ERP system and EDI capabilities make ordering and tracking effortless."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">TC</div>
-                        <div class="author-info">
-                            <h4>Thomas Chen</h4>
-                            <p>Senior Engineer, Industrial Equipment Corp.</p>
                         </div>
                     </div>
                 </article>
@@ -1987,40 +2378,6 @@
         </div>
     </section>
 
-    <!-- Process Section -->
-    <section id="process" class="process">
-        <div class="process-container">
-            <h2 class="section-title">Our Structured Way of Working</h2>
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <h3>Request for Quotation</h3>
-                    <p>Receive and analyze RFQ, review feasibility, and provide detailed quotations.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <h3>Design & Engineering</h3>
-                    <p>Create CAD models, optimize nesting, and develop detailed manufacturing programs.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <h3>Manufacturing</h3>
-                    <p>Execute laser cutting, bending, stamping, and assembly with precision.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <h3>Quality Assurance</h3>
-                    <p>Advanced FARO inspection and comprehensive quality validation processes.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">5</div>
-                    <h3>Packaging & Dispatch</h3>
-                    <p>Safe packaging and on-time delivery to specified locations worldwide.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Photo Gallery Section -->
     <section id="gallery" class="gallery">
         <div class="gallery-container">
@@ -2070,7 +2427,7 @@
 
                 <div class="gallery-item" data-category="products" data-index="3">
                     <div class="gallery-item-image">
-                        <span>🔧</span>
+                        <img src="https://reliable-engg.com/wp-content/uploads/2025/01/Picture22.jpg" alt="Gallery Image 6">
                         <div class="gallery-item-overlay">
                             <h3>Sheet Metal Components</h3>
                             <p>Precision fabricated sheet metal parts for automotive and industrial applications with perfect finish.</p>
@@ -2161,67 +2518,25 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="why-choose">
-        <div class="why-choose-container">
-            <h2 class="section-title">Why Choose Us</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">💰</div>
-                    <h3>Competitive Pricing</h3>
-                    <p>In-house facilities for design and development reduce outsourcing overheads, enabling competitive pricing.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Rapid Prototyping</h3>
-                    <p>State-of-the-art facilities enable rapid trial and manufacturing iterations for complex assemblies.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">✅</div>
-                    <h3>Quality Inspection</h3>
-                    <p>In-house FARO/CMM inspection capabilities ensure precision control with 20-30 micron tolerance.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
-                    <h3>Multi-Domain Expertise</h3>
-                    <p>Expertise spanning stamping, fabrication, casting, machining, and busbar manufacturing.</p>
-                </div>
+    <section id="parts-gallery">
+        <div class="carousel-container">
+            <h2 class="section-title">Engineering Parts Gallery</h2>
+            <div class="carousel">
+                <div class="carousel-controls">
+                    <button class="carousel-btn" id="prevBtn">&#8249;</button>
+                    <button class="carousel-btn" id="nextBtn">&#8250;</button>
+                  </div>
+                  <div class="carousel-indicators" id="indicators"></div>
+              <div class="carousel-inner" id="carouselInner">
+                <!-- Images will be inserted by JS -->
+              </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Process Section -->
-    <section id="process" class="process">
-        <div class="process-container">
-            <h2 class="section-title">Our Structured Way of Working</h2>
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <h3>Request for Quotation</h3>
-                    <p>Receive and analyze RFQ, review feasibility, and provide detailed quotations.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <h3>Design & Engineering</h3>
-                    <p>Create CAD models, optimize nesting, and develop detailed manufacturing programs.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <h3>Manufacturing</h3>
-                    <p>Execute laser cutting, bending, stamping, and assembly with precision.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <h3>Quality Assurance</h3>
-                    <p>Advanced FARO inspection and comprehensive quality validation processes.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">5</div>
-                    <h3>Packaging & Dispatch</h3>
-                    <p>Safe packaging and on-time delivery to specified locations worldwide.</p>
-                </div>
+        
+            <!--div class="contact-section">
+              <h2>Contact Us</h2>
+              <p>Get in touch with us today for all your engineering needs. Our team is happy to help you anytime!</p>
             </div>
-        </div>
+          </div -->
     </section>
 
     <!-- Contact Section -->
@@ -2286,6 +2601,7 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content">
+            <img src="https://reliable-engg.com/wp-content/uploads/2025/01/cropped-reliable-Copy-2048x645.png" alt="Reliable Engineering LLC Logo" class="footer-logo">
             <h3 style="margin-bottom: 1rem; font-size: 1.5rem;">Reliable Engineering LLC</h3>
             <p style="margin-bottom: 1rem;">ISO 9001:2015 Certified Manufacturing Company | Sheet Metal Fabrication | CNC Machining | Metal Stamping</p>
             <p><strong>USA Facility:</strong> 600 N Division St, Chenoa, IL 61726 | <strong>India Facility:</strong> PI-13, Ambad MIDC, Nashik 422010</p>
@@ -2324,8 +2640,7 @@
                 <a href="#testimonials" style="color: white; margin: 0 1rem; text-decoration: none;">Testimonials</a>
                 <a href="#blog" style="color: white; margin: 0 1rem; text-decoration: none;">Blog</a>
                 <a href="#gallery" style="color: white; margin: 0 1rem; text-decoration: none;">Gallery</a>
-                <a href="#rfq" style="color: white; margin: 0 1rem; text-decoration: none;">RFQ</a>
-                <a href="#contact" style="color: white; margin: 0 1rem; text-decoration: none;">Contact</a>
+                <a href="#rfq-contact" style="color: white; margin: 0 1rem; text-decoration: none;">RFQ & Contact</a>
             </nav>
         </div>
     </footer>
@@ -2383,6 +2698,18 @@
         // Language Translations
         let currentLang = 'en';
 
+        // Scroll to top on page load/refresh
+        window.addEventListener('load', () => {
+            window.scrollTo(0, 0);
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+        });
+
+        // Also handle page refresh
+        if (history.scrollRestoration) {
+            history.scrollRestoration = 'manual';
+        }
+
         const translations = {
             en: {
                 nav: ['Home', 'About', 'Services', 'RFQ', 'Testimonials', 'Blog', 'Gallery', 'Contact']
@@ -2392,19 +2719,20 @@
             }
         };
 
-        // Language Switcher
-        const langButtons = document.querySelectorAll('.lang-button');
+        // Language Switcher - Single Toggle Button
+        const langToggle = document.getElementById('langToggle');
+        const langOptions = document.querySelectorAll('.lang-option');
         
-        langButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const lang = button.getAttribute('data-lang');
+        langOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                const lang = option.getAttribute('data-lang');
                 if (lang === currentLang) return;
                 
                 currentLang = lang;
                 
-                // Update active button
-                langButtons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
+                // Update active state
+                langOptions.forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
                 
                 // Update all translatable elements
                 document.querySelectorAll('[data-en]').forEach(el => {
@@ -2420,17 +2748,60 @@
             });
         });
 
+        // Mobile Dropdown Toggle
+        document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+            toggle.addEventListener('click', (e) => {
+                if (window.innerWidth <= 968) {
+                    e.preventDefault();
+                    const navItem = toggle.closest('.nav-item');
+                    navItem.classList.toggle('open');
+                }
+            });
+        });
+
+        // Collapsible RFQ & Contact Section
+        const rfqContactHeader = document.getElementById('rfqContactHeader');
+        const rfqContactContent = document.getElementById('rfqContactContent');
+        const rfqContactToggle = document.getElementById('rfqContactToggle');
+
+        rfqContactHeader.addEventListener('click', () => {
+            rfqContactContent.classList.toggle('active');
+            rfqContactToggle.classList.toggle('active');
+        });
+
+  
+
         // Gradient Navigation Bar on Scroll
         const navbar = document.getElementById('navbar');
+        const dropdownContent = document.getElementById('dropdownContent');
+        const dropbtn = document.getElementById('dropbtn');
+
+        const heroSection = document.querySelector('.hero');
         let lastScrollTop = 0;
 
         window.addEventListener('scroll', () => {
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             
-            if (scrollTop > 50) {
-                navbar.classList.add('scrolled');
+            // Add gradient to navbar when scrolled
+             if (scrollTop > 50) {
+                 navbar.classList.add('scrolled');
+                 dropdownContent.classList.add('scrolled');
+                 dropbtn.classList.add('scrolled');
             } else {
-                navbar.classList.remove('scrolled');
+                 navbar.classList.remove('scrolled');
+                 dropdownContent.classList.remove('scrolled');
+                 dropbtn.classList.remove('scrolled');
+             }
+            
+            // Fade out hero section behind header
+            const heroRect = heroSection.getBoundingClientRect();
+            const navbarHeight = navbar.offsetHeight;
+            
+            // If hero section is scrolling behind navbar
+            if (heroRect.top < navbarHeight && heroRect.bottom > 0) {
+                heroSection.classList.add('fade-top');
+            } else {
+                heroSection.classList.remove('fade-top');
             }
             
             lastScrollTop = scrollTop;
@@ -2449,7 +2820,8 @@
             { icon: '👷', title: 'Expert Engineering Team', description: '50+ years of combined expertise in design, prototyping, and manufacturing engineering.' },
             { icon: '🔩', title: 'Precision Machined Parts', description: 'Complex CNC machined components for Caterpillar, Navistar, and Komatsu heavy equipment.' },
             { icon: '🤖', title: 'Robotic Welding Cell', description: 'Automated welding systems for consistent weld quality and increased production efficiency.' },
-            { icon: '✅', title: 'Quality Control Lab', description: 'ISO 9001:2015 certified quality lab with advanced testing equipment and inspection protocols.' }
+            { icon: '✅', title: 'Quality Control Lab', description: 'ISO 9001:2015 certified quality lab with advanced testing equipment and inspection protocols.' },
+            { icon: 'https://reliable-engg.com/wp-content/uploads/2025/01/Picture21.jpg', title: 'My Product Items', description: 'ISO 9001:2015 certified quality lab with advanced testing equipment and inspection protocols.' }
         ];
 
         let currentImageIndex = 0;
@@ -2628,11 +3000,27 @@ Submitted on: ${new Date().toLocaleString()}
             navLinks.classList.toggle('active');
         });
 
-        // Close menu when clicking on a link
+        // Close menu when clicking on a link (except dropdown parent)
         document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('active');
+            link.addEventListener('click', (e) => {
+                // Don't close if it's the Resources dropdown parent on mobile
+                if (link.classList.contains('dropdown-toggle') && window.innerWidth <= 968) {
+                    return;
+                }
+                // Close menu for all other links
+                if (!link.closest('.nav-item') || link.getAttribute('href') !== '#') {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+
+        // Prevent dropdown parent link from navigating on desktop
+        document.querySelectorAll('.nav-item > a[href="#"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (window.innerWidth > 968) {
+                    e.preventDefault();
+                }
             });
         });
 
@@ -2817,7 +3205,87 @@ Please respond to this inquiry within 24 hours.
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
             observer.observe(el);
-        });
+        }); 
+
+        // Carousel Functionality
+           // Mock image URLs since the original site doesn't provide image list
+    // In a real scenario, these would be fetched from the gallery page
+    //15,18,21,22,23,25,28,30,32,35,36,38,40,41
+    const images = [
+      'https://reliable-engg.com/wp-content/uploads/2025/01/Picture15.jpg',
+      'https://reliable-engg.com/wp-content/uploads/2025/01/Picture18.png',
+      'https://reliable-engg.com/wp-content/uploads/2025/01/Picture19.jpg',
+      'https://reliable-engg.com/wp-content/uploads/2025/01/Picture20.png',
+      'https://reliable-engg.com/wp-content/uploads/2025/01/Picture21.jpg',
+      'https://reliable-engg.com/wp-content/uploads/2025/01/Picture22.jpg',
+      'https://reliable-engg.com/wp-content/uploads/2025/01/Picture23.jpg',
+      'https://reliable-engg.com/wp-content/uploads/2025/01/Picture25.png',
+      'https://reliable-engg.com/wp-content/uploads/2025/01/Picture28.jpg',
+      'https://reliable-engg.com/wp-content/uploads/2025/01/Picture30.jpg',
+      'https://reliable-engg.com/wp-content/uploads/2025/01/Picture32.jpg',
+      'https://reliable-engg.com/wp-content/uploads/2025/01/Picture35.png',
+      'https://reliable-engg.com/wp-content/uploads/2025/01/Picture36.jpg',
+      'https://reliable-engg.com/wp-content/uploads/2025/01/Picture38.png',
+      'https://reliable-engg.com/wp-content/uploads/2025/01/Picture40.png',
+      'https://reliable-engg.com/wp-content/uploads/2025/01/Picture41.png'
+    ];
+
+    const carouselInner = document.getElementById('carouselInner');
+    const indicatorsContainer = document.getElementById('indicators');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    let currentIndex = 0;
+
+    // Populate carousel
+    images.forEach((src, index) => {
+      const item = document.createElement('div');
+      item.classList.add('carousel-item');
+      item.innerHTML = `<img src="${src}" alt="Gallery Image ${index + 1}">`;
+      carouselInner.appendChild(item);
+
+      const indicator = document.createElement('div');
+      indicator.classList.add('indicator');
+      if (index === 0) indicator.classList.add('active');
+      indicator.addEventListener('click', () => goToSlide(index));
+      indicatorsContainer.appendChild(indicator);
+    });
+
+    const indicators = document.querySelectorAll('.indicator');
+
+    function updateCarousel() {
+      carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+      // Update indicators
+      indicators.forEach((indicator, index) => {
+        if (index === currentIndex) {
+          indicator.classList.add('active');
+        } else {
+          indicator.classList.remove('active');
+        }
+      });
+    }
+
+    function goToSlide(index) {
+      currentIndex = index;
+      updateCarousel();
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % images.length;
+      updateCarousel();
+    }
+
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      updateCarousel();
+    }
+
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+
+    // Auto-advance every 5 seconds
+    setInterval(nextSlide, 15000);
     </script>
 </body>
 </html>
