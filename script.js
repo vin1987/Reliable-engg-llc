@@ -105,7 +105,26 @@ certificationsNavLink.addEventListener('click', function(event) {
        
   });
 
-// Collapsible certification Section
+// Collapsible capabilities Section
+const capabilitiesHeader = document.getElementById('capabilitiesHeader');
+const capabilitiesContent = document.getElementById('capabilitiesContent');
+const capabilitiesToggle = document.getElementById('capabilitiesToggle');
+
+capabilitiesHeader.addEventListener('click', () => {
+    capabilitiesContent.classList.toggle('active');
+    capabilitiesToggle.classList.toggle('active');
+});
+
+const capNavLink = document.getElementById('capNavLink');
+capNavLink.addEventListener('click', function(event) {
+    // Prevent the default behavior (e.g., navigating to href)
+        event.preventDefault();
+        capabilitiesContent.classList.toggle('active');
+        capabilitiesToggle.classList.toggle('active');
+       
+  });
+
+// Collapsible capabilities Section
 const certificationHeader = document.getElementById('certificationsHeader');
 const certificationContent = document.getElementById('certificationsContent');
 const certificationToggle = document.getElementById('certificationsToggle');
@@ -556,22 +575,20 @@ document.querySelectorAll('.gallery-item').forEach(el => {
 // In a real scenario, these would be fetched from the gallery page
 
 const images = [
-'https://reliable-engg.com/wp-content/uploads/2025/01/Picture15.jpg',
-'https://reliable-engg.com/wp-content/uploads/2025/01/Picture18.png',
-'https://reliable-engg.com/wp-content/uploads/2025/01/Picture19.jpg',
-'https://reliable-engg.com/wp-content/uploads/2025/01/Picture20.png',
-'https://reliable-engg.com/wp-content/uploads/2025/01/Picture21.jpg',
-'https://reliable-engg.com/wp-content/uploads/2025/01/Picture22.jpg',
-'https://reliable-engg.com/wp-content/uploads/2025/01/Picture23.jpg',
-'https://reliable-engg.com/wp-content/uploads/2025/01/Picture25.png',
-'https://reliable-engg.com/wp-content/uploads/2025/01/Picture28.jpg',
-'https://reliable-engg.com/wp-content/uploads/2025/01/Picture30.jpg',
-'https://reliable-engg.com/wp-content/uploads/2025/01/Picture32.jpg',
-'https://reliable-engg.com/wp-content/uploads/2025/01/Picture35.png',
-'https://reliable-engg.com/wp-content/uploads/2025/01/Picture36.jpg',
-'https://reliable-engg.com/wp-content/uploads/2025/01/Picture38.png',
-'https://reliable-engg.com/wp-content/uploads/2025/01/Picture40.png',
-'https://reliable-engg.com/wp-content/uploads/2025/01/Picture41.png'
+'./gallery/parts/parts1.png',
+'./gallery/parts/parts2.png',
+'./gallery/parts/parts4.png',
+'./gallery/parts/parts5.png',
+'./gallery/parts/parts6.png',
+'./gallery/parts/parts7.png',
+'./gallery/parts/parts8.png',
+'./gallery/parts/parts9.png',
+'./gallery/parts/parts11.png',
+'./gallery/parts/parts12.png',
+'./gallery/parts/parts13.png',
+'./gallery/parts/parts14.png',
+'./gallery/parts/parts15.png',
+'./gallery/parts/parts16.png'
 ];
 
 const carouselInner = document.getElementById('carouselInner');

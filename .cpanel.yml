@@ -8,4 +8,6 @@ deployment:
     - /bin/cp IATF.png $DEPLOYPATH
     - /bin/cp ISO.png $DEPLOYPATH
     - /bin/cp logo.png $DEPLOYPATH
+    - /bin/cp /gallery/* $DEPLOYPATH
+
 
